@@ -45,25 +45,3 @@ jobs:
         with:
           name: factorial-build
           path: build/
-
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: factorial-build
-          path: deployment/
-
-      - name: Show deployment files
-        run: |
-          echo "Files to deploy:"
-          ls -R deployment/
-
-      - name: Deploy application
-        run: |
-          echo "Deploying factorial application..."
-          echo "Deployment successful!"
